@@ -1,0 +1,18 @@
+CQ2. The first use case is multiplication, ex. (in a variable declaration): int var3 = var1 * var2
+     
+     The second use case is in defining a pointer, ex.: short* directionsToShortVille; 
+     
+     The third use case is when accessing the value of the pointer, ex.:  float snapshotVal = *pointerToFloat
+
+CQ3. The first use case is bitwise AND, ex.: int commonPowersOfTwo = 5 & 3. In this case, both share a 1 but 5 has a 4 and 3 has a 2, 
+     so all they end up with is 1
+
+     The second use case is for a reference to another variable, usually in function parameters. Ex.: int func(int &directlyImpactedNumber) {. . .}
+
+     The third use case is for a pointer to obtain a memory address from another variable. Ex.: double *memoryLibrarian[1153] = &neatBookNumber.
+     In this case, it is storing the identifiable book number variable's memory address into a spot in an array of pointers
+
+CQ4. For *(&a), the answer would be essentially the same as though the user wrote a, and would just give the direct value of a. Dereferencing and 
+     referencing are opposites in the sense that, when referring to a single variable, they cancel each other out. They are also not opposites in
+     the sense that they are used in very different circumstances - one for simply getting the address of some other variable, and the other for
+     looking at that address, finding the value, and based on the type of the pointer, interpret that value's meaning.
