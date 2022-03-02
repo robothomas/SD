@@ -1,0 +1,8 @@
+The copy constructor is what is used to make a copy of one class into another class of the same type, which is mainly used for 
+allocating new memory for the class that is copying and making the memory in the original identical to the memory to the class with
+the new memory. The destructor is used to deallocate the memory that the class has allocated. The assignment operator is used as a link
+between the two, making sure that the allocated memory for one object is not the same as the memory for the copied, second object. If this
+were to be the same memory slot, the destructor would ask to deallocate the memory in the same place twice (or more), causing the memory
+manager to crash the program after the attempt to deallocate memory that already was dealloacted. The assignment operator is thus the bridge
+to make sure that such a request doesn't occur, and whenever memory is involved with a new class, it should create new memory through the
+operator (or copy constructor, when feasible).
