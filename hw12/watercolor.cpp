@@ -33,12 +33,13 @@ public:
 
     int memorySlot;
 
-    for (int i = 0; subject[i] == '\0'; i++) {
+    for (int i = 0; subject[i] != '\0'; i++) {
         memorySlot = i + 10;
 
         mem[memorySlot] = subject[i]; // adds each char from the subject into memory
 
         if (subject[i + 1] == '\0') {
+            // cout << "added tilli" << endl;
             mem[memorySlot + 1] = '~'; // if the next i is the null byte, put '~' in that spot
         }
     }
