@@ -1,0 +1,3 @@
+Exercise 11: The difference between adding stuff in mem versus TextInput is that with TextInput, the response is not recorded right away and
+needs to go back and change mem. Also, with mem you can choose the places in mem that the text goes, but for TextInput, it is indeterminant and
+if your not careful with the design, it can overflow into other memory elements (such as the memory for a second TextInput).
