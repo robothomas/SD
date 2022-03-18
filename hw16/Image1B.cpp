@@ -59,6 +59,8 @@ class Image {
             for (unsigned int i = 0; i < height; i++) {
                 f.write(reinterpret_cast<char *>(data[i]), bytes_per_scanline);
             }
+
+            f.close();
             
             cout << "The image was printed to output.ppm" << endl;
         }
