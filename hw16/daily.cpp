@@ -2,6 +2,7 @@
 #include<string.h>
 #include <iostream>
 #include <string>
+#include <ctime>
 using namespace std;
 
 class User {
@@ -200,10 +201,26 @@ class Bank {
             users[receiver.id].deposit(charge);
         }
 
+        // waits the number of seconds specified
+        // clock code found from Stack Overflow - https://stackoverflow.com/questions/3220477/how-to-use-clock-in-c
+        void wait(double seconds) {
+            clock_t start = clock();
+            while ((clock() - start) / (double) CLOCKS_PER_SEC < seconds) {
+                // do nothing
+            }
+        }
+
         void askForInput() {
             char typeOfInput = 'N';
+            string passThroughString = "N";
+
+            wait(.5); // makes the function look nicer if it waits between functions
+
             cout << "Type L for a list of users, A to add a user, D to deposit money, W to withdraw money, T to add a transaction, or X to terminate the program" << endl;
-            cin >> typeOfInput;
+            
+            cin >> passThroughString;
+            typeOfInput = passThroughString[0]; // makes it so if the input is larger than one character, it only reads the first character
+
             switch (typeOfInput) {
                 case 'L':
                     list();
