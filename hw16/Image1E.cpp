@@ -117,12 +117,6 @@ class Image {
 };
 
 int main() {
-    Image exampleImage(10, 10);
-    exampleImage.print("output.ppm");
-
-    Image myimg("tiny.ppm");
-    myimg.print("normal.ppm");
-
     Image zeroRedImg("tiny.ppm");
     zeroRedImg.zeroRed();
     zeroRedImg.print("noRed.ppm");
@@ -130,5 +124,4 @@ int main() {
     Image greyImg("tiny.ppm");
     greyImg.greyScale();
     greyImg.print("grey.ppm");
-
 }
