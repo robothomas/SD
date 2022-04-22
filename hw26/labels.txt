@@ -1,0 +1,2 @@
+restart	new game~
+random	this label is currently unused~

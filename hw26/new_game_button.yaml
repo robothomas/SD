@@ -1,0 +1,16 @@
+      - Button:
+          id: new_game
+          style:
+            alignItems: center
+            width: 130
+            height: 35
+            borderRadius: 10
+            backgroundColor: rgb(150, 150, 150);
+          on_touch:
+            backgroundColor: rgb(200, 200, 200);
+          children:
+            - Text:
+                style:
+                  fontSize: 25
+                  color: black
+                index: {new_game_index}
