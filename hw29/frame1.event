@@ -1,0 +1,11 @@
+- message_id: 5
+- event_info:
+    type: touch_up
+    start_x: 45
+    start_y: 623
+    point_x: 45
+    point_y: 623
+    nodes:
+      - Button_5
+    id: button_5
+- first_name: 'me'
