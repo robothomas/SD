@@ -1,0 +1,23 @@
+
+- Text:
+    style:
+      fontSize: 30
+      color: black
+    index: 4
+- TextInput:
+    index: 100
+    len: 40
+    style:
+      width: 320
+      height: 30
+      marginTop: 30
+      fontSize: 20
+      backgroundColor: white
+      borderColor: gray
+      borderWidth: 1
+    extra_props:
+      placeholder: 'type here'
+      placeholderTextColor: grey
+
+---
+~  0num is 0
