@@ -1,5 +1,5 @@
-#ifndef __DVD_H__
-#define __DVD_H__
+#ifndef __DVDARRAYP_H__
+#define __DVDARRAYP_H__
 
 #include "DVD.h"
 
@@ -8,13 +8,13 @@ class DVDArrayP {
         unsigned int size;
         DVD **elt;
     public:
-        static unsigned int DEFAULT_SIZE = 100;
+        static unsigned int DEFAULT_SIZE;
         DVDArrayP(unsigned int sz);
         DVDArrayP();
-        DVDArrayP(const DVDArrayP &arr);
+        DVDArrayP(/*const*/ DVDArrayP &arr);
         ~DVDArrayP();
         int getSize();
-        DVDArrayP operator=(const DVDArrayP &arr);
+        DVDArrayP operator=(/*const*/ DVDArrayP &arr);
         void display();
         DVD &operator[](int i);
 };

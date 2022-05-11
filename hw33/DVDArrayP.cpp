@@ -1,10 +1,13 @@
 #include "DVDArrayP.h"
+#include "DVD.h"
 #include <iostream>
 using namespace std;
 
+unsigned int DVDArrayP::DEFAULT_SIZE = 100;
+
 DVDArrayP::DVDArrayP(unsigned int sz) {
   size = sz;
-  elt = new *DVD[sz];
+  elt = new DVD*[sz];
 
   for (unsigned int i = 0; i < sz; i++) {
     elt[i] = 0;
@@ -13,20 +16,20 @@ DVDArrayP::DVDArrayP(unsigned int sz) {
 
 DVDArrayP::DVDArrayP() {
   size = DEFAULT_SIZE;
-  elt = new *DVD[DEFAULT_SIZE];
+  elt = new DVD*[DEFAULT_SIZE];
 
   for (unsigned int i = 0; i < size; i++) {
     elt[i] = 0;
   }
 }
 
-DVDArrayP::DVDArrayP(const DVDArrayP &arr) {
+DVDArrayP::DVDArrayP(/*const*/ DVDArrayP &arr) {
   size = arr.size;
-  elt = new *DVD[size];
-  for (i = 0; i < size; i++) {
-    if (arr[i] != 0) {
+  elt = new DVD*[size];
+  for (unsigned int i = 0; i < size; i++) {
+    if (arr.elt[i] != 0) {
       elt[i] = new DVD();
-      elt[i][0] = arr[i][0];
+      elt[i][0] = arr[i];
 
     } else {
       elt[i] = 0;
@@ -37,7 +40,7 @@ DVDArrayP::DVDArrayP(const DVDArrayP &arr) {
 DVDArrayP::~DVDArrayP() {
   for (unsigned int i = 0; i < size; i++) {
     if (elt[i] != 0) {
-      delete elt[i][0];
+      delete elt[i]/*[0]*/;
     }
   }
 
@@ -48,9 +51,27 @@ int DVDArrayP::getSize() {
   return size;
 }
 
-DVDArrayP DVDArrayP::operator=(const DVDArrayP &arr) {
-  ~DVDArrayP();
-  DVD(arr);
+DVDArrayP DVDArrayP::operator=(/*const*/ DVDArrayP &arr) {
+  for (unsigned int i = 0; i < size; i++) {
+    if (elt[i] != 0) {
+      delete elt[i]/*[0]*/;
+    }
+  }
+
+  delete [] elt;
+
+  size = arr.size;
+  elt = new DVD*[size];
+  for (unsigned int i = 0; i < size; i++) {
+    if (arr.elt[i] != 0) {
+      elt[i] = new DVD;
+      elt[i][0] = arr[i];
+
+    } else {
+      elt[i] = 0;
+    }
+  }
+  
   return *this;
 }
 
@@ -64,7 +85,7 @@ void DVDArrayP::display() {
 
 DVD &DVDArrayP::operator[](int i) {
   if (i < 0 || i > size - 1) {
-    cout << "WARNING: invalid index" < endl;
+    cout << "WARNING: invalid index" << endl;
   }
 
   if (i < 0) {
